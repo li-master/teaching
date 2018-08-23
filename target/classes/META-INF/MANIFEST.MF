@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: teaching
 Implementation-Version: 1.6.9
-Built-By: Administrator
+Built-By: admin
 Implementation-Vendor-Id: com.web
-Build-Jdk: 1.8.0_151
+Build-Jdk: 1.8.0_161
 Implementation-URL: http://projects.spring.io/spring-boot/teaching/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
