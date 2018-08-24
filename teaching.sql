@@ -175,3 +175,22 @@ CREATE TABLE `test` (
 -- Records of test
 -- ----------------------------
 INSERT INTO `test` VALUES ('1', '张三');
+
+
+-- ----------------------------
+-- Table structure for teach_plan
+-- ----------------------------
+DROP TABLE IF EXISTS `teach_plan`;
+CREATE TABLE `teach_plan` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL COMMENT '计划名称',
+  `content` longtext COMMENT '计划类容',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of teach_plan
+-- ----------------------------
+INSERT INTO `teach_plan` VALUES ('1', '2', '123');
+INSERT INTO `teach_plan` VALUES ('2', 'ces', 'saf');
+
