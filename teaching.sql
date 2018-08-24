@@ -41,7 +41,7 @@ INSERT INTO `sys_menu` VALUES ('8', '用户删除', null, 'home:user:delete', '1
 INSERT INTO `sys_menu` VALUES ('11', '教学资源', '/home/source', 'home:source', null);
 INSERT INTO `sys_menu` VALUES ('12', '资源', '/home/source/list', 'home:source', '11');
 INSERT INTO `sys_menu` VALUES ('13', '学籍管理', '/home/source/list', 'home:guanlis', null);
-INSERT INTO `sys_menu` VALUES ('14', '教学计划', '/home/source/list', 'home:jihua', null);
+INSERT INTO `sys_menu` VALUES ('14', '教学计划', '/teach/plan', 'home:jihua', null);
 INSERT INTO `sys_menu` VALUES ('15', '开课/排课管理', '/home/source/list', 'home:paike', null);
 INSERT INTO `sys_menu` VALUES ('16', '选课管理', '/home/source/list', 'home:xuanke', null);
 INSERT INTO `sys_menu` VALUES ('17', '考勤', '/home/source/list', 'home:kaoqin', '21');
@@ -50,7 +50,7 @@ INSERT INTO `sys_menu` VALUES ('19', '作业', '/home/source/list', 'home:zuoye'
 INSERT INTO `sys_menu` VALUES ('20', '月考', '/home/source/list', 'home:yuekao', '21');
 INSERT INTO `sys_menu` VALUES ('21', '报表', '/home/source/list', 'home:baobiao', null);
 INSERT INTO `sys_menu` VALUES ('22', '学籍', '/home/source/list', 'home:xue', '13');
-INSERT INTO `sys_menu` VALUES ('23', '计划', '/home/source/list', 'home:ji', '14');
+INSERT INTO `sys_menu` VALUES ('23', '计划', '/teach/plan', 'home:ji', '14');
 INSERT INTO `sys_menu` VALUES ('24', '开课', '/home/source/list', 'home:kai', '15');
 INSERT INTO `sys_menu` VALUES ('25', '排课', '/home/source/list', 'home:pai', '15');
 INSERT INTO `sys_menu` VALUES ('26', '选课', '/home/source/list', 'home:xuan', '16');
