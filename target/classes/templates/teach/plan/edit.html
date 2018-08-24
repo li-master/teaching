@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<meta charset="utf-8">
+	<head th:include="include :: header"></head>
+
+	<body>
+		<div class="page-content-wrap">
+					<div class="layui-tab" style="margin: 0;">
+						<ul class="layui-tab-title">
+							<li id="list"><a href="/teach/plan">列表</a></li>
+							<li class="layui-this">详情</li>
+						</ul>
+						<div class="layui-tab-content" id="app">
+							<div class="layui-tab-item"></div>
+							<div class="layui-tab-item layui-show">
+								<div class="layui-form-item">
+									<label class="layui-form-label">计划名称：</label>
+									<div class="layui-input-block">
+										<input type="text" v-model="model.name" name="name" required lay-verify="required" placeholder="请输入名称" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">计划类容：</label>
+									<div class="layui-input-block">
+										<input type="text" v-model="model.content" name="name" required lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="layui-form-item" style="padding-left: 10px;">
+						<div class="layui-input-block">
+							<button class="layui-btn layui-btn-normal" onclick="save()" lay-submit lay-filter="formDemo">立即提交</button>
+							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+						</div>
+					</div>
+		</div>
+		<div th:include="include :: module-footer"></div>
+		<script th:inline="javascript">
+		    var id = [[${id}]];
+		</script>
+		<script>
+			layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',  'element', 'upload', 'layedit'], function() {
+				var form = layui.form(),
+					layer = layui.layer,
+					$ = layui.jquery,
+					laypage = layui.laypage,
+					laydate = layui.laydate,
+					layedit = layui.layedit,
+					element = layui.element(),
+					dialog = layui.dialog;
+					
+
+				//获取当前iframe的name值
+				var iframeObj = $(window.frameElement).attr('name');
+				//创建一个编辑器
+				var editIndex = layedit.build('LAY_demo_editor', {
+					tool: ['strong' //加粗
+						, 'italic' //斜体
+						, 'underline' //下划线
+						, 'del' //删除线
+						, '|' //分割线
+						, 'left' //左对齐
+						, 'center' //居中对齐
+						, 'right' //右对齐
+						, 'link' //超链接
+						, 'unlink' //清除链接
+						, 'image' //插入图片
+					],
+					height: 100
+				})
+				//全选
+				form.on('checkbox(allChoose)', function(data) {
+					var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+					child.each(function(index, item) {
+						item.checked = data.elem.checked;
+					});
+					form.render('checkbox');
+				});
+				form.render();
+
+				layui.upload({
+					url: '上传接口url',
+					success: function(res) {
+						console.log(res); //上传成功返回值，必须为json格式
+					}
+				});
+			});
+			
+			//获取修改信息
+			var vm=new 	Vue({
+				el:"#app",
+				data:{
+					model:{},
+				},
+				created:function(){
+					this.$nextTick(function(){
+						get();
+					});
+				}
+			});
+			
+			function get(){
+				if(null!=id){
+					$.get('/teach/plan/get',{id:id},(d)=>{
+						vm.model=d;
+					});
+				}
+			}
+			
+			function save(){
+				$.post('/teach/plan/save',vm.model,(d)=>{
+					layer.alert(d);
+					//切换到选项卡
+					location.href="/teach/plan";
+				});
+			}
+		</script>
+	</body>
+
+</html>
