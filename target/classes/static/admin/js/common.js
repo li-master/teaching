@@ -97,7 +97,7 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
 	$('#table-list,.tool-btn').on('click', '.go-btn', function() {
 		var url=$(this).attr('data-url');
 		var id = $(this).attr('data-id');
-		window.location.href=url+"?id="+id;
+		window.location.href=url;
 		return false;
 	})
 	//编辑栏目
@@ -106,7 +106,7 @@ layui.use(['form', 'jquery', 'laydate', 'layer', 'laypage', 'dialog',   'element
 		var id = That.attr('data-id');
 		var url=That.attr('data-url');
 		//将iframeObj传递给父级窗口
-		parent.page("菜单编辑", url + "?id=" + id, iframeObj, w = "700px", h = "620px");
+		parent.page("菜单编辑", url, iframeObj, w = "700px", h = "620px");
 		return false;
 	})
 });
